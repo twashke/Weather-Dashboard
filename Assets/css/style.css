@@ -1,0 +1,25 @@
+/* Universal Styling */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header Styling */
+header h1 {
+    background-image: linear-gradient(blue, darkblue);
+    color: white;
+    font-size: bolder;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Search for a City Styling */
+label {
+    font-size: 1.75rem;
+    padding-left: 20px;
+    font-weight: bolder;
+}
+
+.input-form {
+    padding-left: 20px;
+}
+
