@@ -19,10 +19,54 @@ label {
     font-weight: bolder;
 }
 
+/* Form Enter City Padding */
 .input-form {
     padding-left: 20px;
 }
 
+/* Submit Button Margin */
 .submit-btn {
     margin-top: 10px;
 }
+
+
+
+
+/* Classes and Styling for UV Index Colors */
+/* Low = Green */
+.low {
+    background-color: green;
+    color: white;
+}
+
+/* Moderate = Yellow */
+.moderate {
+    background-color: yellow;
+    color: white;
+}
+
+/* High = Orange */
+.high {
+    background-color: orange;
+    color: white;
+}
+
+/* Very High = Red */
+.very-high {
+    background-color :red;
+    color: white;
+}
+
+/* Extreme = Magenta */
+.extreme {
+    background-color: magenta;
+    color: white;
+}
+
+
+
+
+
+
+
+
