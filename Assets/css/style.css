@@ -14,8 +14,8 @@ header h1 {
 
 /* Search for a City Styling */
 label {
-    font-size: 1.75rem;
-    padding-left: 20px;
+    font-size: 2rem;
+    padding-left: 25px;
     font-weight: bolder;
 }
 
@@ -23,3 +23,6 @@ label {
     padding-left: 20px;
 }
 
+.submit-btn {
+    margin-top: 10px;
+}
