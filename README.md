@@ -18,8 +18,6 @@ Using Server Side APIs to create a Weather Dashboard
 - Project Information
 - Project Information 
 - Project Information
-- Project Information
-- Project Information
 - Comments have been added to the HTML, CSS and JS files to clarify each step and make future updates easier.
 
 ## Installation
