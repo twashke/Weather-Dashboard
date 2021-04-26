@@ -13,11 +13,18 @@ Using Server Side APIs to create a Weather Dashboard
 ## About the Project
 
 - This project was built to allow the user the ability to look up the current weather in their area.
-- The motiviation for this project was to schedule their work day.
+- The motiviation for this project is to allow the user to look up the weather forecast by entering the city name in the input field.
 - Project Information
 - Project Information
 - Project Information 
-- Project Information
+- Project Information 
+- The UV Index is color coordinated to display the current condition for the user. 
+The Scale follows the EPA guidelines:
+    - **Low** (UV Index 0 to 2) - **Green** - *low risk from the sun for the average person.*
+    - **Moderate** (UV Index 3 to 5) - **Yellow** - *moderate risk from unprotected sun exposure.*
+    - **High** (UV Index 6 to 7) - **Orange** - *high risk from unprotected sun exposure, protection needed.*
+    - **Very High** (UV Index 8 to 10) - **Red** - *very high risk from unprotected sun exposure, take extra precaution.*
+    - **Extreme** (UV Index 11 and above) - **Magenta** - *extreme risk from unprotected sun exposure, take all protections because skin can burn in minutes.*
 - Comments have been added to the HTML, CSS and JS files to clarify each step and make future updates easier.
 
 ## Installation
