@@ -1,11 +1,15 @@
-// Create way to take user city input and convert to latitude and longitude
-    // Autocomplete geocoding API - refer to https://apidocs.geoapify.com/docs/geocoding/api/
-        // https://api.geoapify.com/v1/geocode/autocomplete
-            // Step by step tutorial https://apidocs.geoapify.com/samples/autocomplete/autocomplete-tutorial/#step-1
+// Declare Element Variables
+
+// Declare Variables
+var apiKey = "fe8522e8db720eab5b888ddc0854648d";
 
 
-// Fetch information from API
-    // https://api.openweathermap.org/data/2.5/onecall?lat= user fill in latitude &lon=- user fill in longitude &exclude=hourly,minutely,alerts&appid={fe8522e8db720eab5b888ddc0854648d}
+// Fetch latitude and longitude from city input from API Open Weather
+// api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+    // coord.lon
+    // coord.lat
+// Fetch weather information
+// https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=minutely,hourly,daily,alerts&appid={API key}
 
 // User input should provide the following
     // City Name
@@ -47,6 +51,22 @@ function changeIndexColor() {
     }
 };
 
+// // Handle Search Button Function - Having Issues console logging undefined
+// function handleSearchBtn(city) {
+//     ev.preventDefault();
+//     // Variable for city entered
+//     var userInput = $("string" , city).val();
+//     // Console log user Input
+//     console.log("City Entered: ", userInput);
+//     // Save to local storage
+//     localStorage.setItem(city, userInput);
+//     // 
+//     $("#input-form").text("");
+// }
+// // add event listener for Search button
+// $(".search").on("click", function () {
+//     handleSearchBtn("")
+// });
 
     // Provide 5 day forecast that displays: 
         // Date
