@@ -51,34 +51,33 @@ function changeIndexColor() {
     }
 };
 
-// // Handle Search Button Function - Having Issues console logging undefined
-// function handleSearchBtn(city) {
-//     ev.preventDefault();
-//     // Variable for city entered
-//     var userInput = $("string" , city).val();
-//     // Console log user Input
-//     console.log("City Entered: ", userInput);
-//     // Save to local storage
-//     localStorage.setItem(city, userInput);
-//     // 
-//     $("#input-form").text("");
-// }
-// // add event listener for Search button
-// $(".search").on("click", function () {
-//     handleSearchBtn("")
-// });
+// Handle Search Button Function - Having Issues console logging undefined
+function handleSearchBtn() {
+    // Variable for city entered
+    var userInput = $("#input-form").val();
+    // Console log user Input
+    console.log("City Entered: ", userInput);
+    // Save to local storage
+    localStorage.setItem("city", JSON.stringify(userInput));
+}
+// add event listener for Search button
+$(".search").on("click", handleSearchBtn);
 
-    // Provide 5 day forecast that displays: 
-        // Date
-        // Weather Conditions: - "daily"
-            // Icon of conditions - "daily.weather.icon"
-                // For code 500 - light rain icon = "10d". See below a full list of codes
-                // URL is http://openweathermap.org/img/wn/10d@2x.png - refer to https://openweathermap.org/weather-conditions
-            // Temperature - "daily.temp.day"
-            // Humidity - "daily.humidity"
-            // Wind speed - "daily.wind_speed"
 
-// Save previous user inputs for items last item entered
-    // Provide as buttons under the Search area so user can view again
-    // Provide clear button to remove and clear local storage
+
+
+//     // Provide 5 day forecast that displays: 
+//         // Date
+//         // Weather Conditions: - "daily"
+//             // Icon of conditions - "daily.weather.icon"
+//                 // For code 500 - light rain icon = "10d". See below a full list of codes
+//                 // URL is http://openweathermap.org/img/wn/10d@2x.png - refer to https://openweathermap.org/weather-conditions
+//             // Temperature - "daily.temp.day"
+//             // Humidity - "daily.humidity"
+//             // Wind speed - "daily.wind_speed"
+
+// // Save previous user inputs for items last item entered
+//     // Provide as buttons under the Search area so user can view again
+//     // Provide clear button to remove and clear local storage
+
 
