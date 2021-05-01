@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- Style CSS Link -->
     <link rel="stylesheet" href="Assets/css/style.css"/>
+    <!-- Debug CSS File -->
+    <!-- <link rel="stylesheet" href="Assets/css/debug.css"/> -->
     <!-- Website Title -->
     <title>Weather Planner</title>
 </head>
@@ -27,22 +29,20 @@
     <section>
         <div class="col-md-6">
             <div class="mb-6">
-                <label for="exampleFormControlInput1" class="form-label">Search for a City:</label>
+                <label for="Search for a City" class="form-label">Search for a City:</label>
                 <div class="input-form">
-                <input type="form" class="form-control-lg col-6" id="input-form" placeholder="Enter City Here">
+                <input type="form" class="form-control-lg col-md-6" id="input-form" placeholder="Enter City Here">
                 <div class="d-grid gap-2 md-block col-6 submit-btn">
                 <button class="search btn btn-primary">Search</button>
-                <hr></div>
+                <hr>
+
+                </div>
                 </div>
             </div>
-
         </div>
-
     </section>
     <section>
-        <div>
-            <div id="uv-index"></div>
-        </div>
+        <div id="uv-index"></div>
     </section>
     <!-- JQuery Source -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
