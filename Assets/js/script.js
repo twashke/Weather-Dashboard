@@ -1,8 +1,27 @@
 // Declare Element Variables
 
 // Declare Variables
-var apiKey = "fe8522e8db720eab5b888ddc0854648d";
 
+
+function getCityLatLon() {
+    // fetch request gets a list of all the repos for the node.js organization
+    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q={Everett}&appid={ba6e0d885e4c033e81cf08113e661854}" 
+
+    fetch(requestUrl, {
+        method: 'GET', //GET is the default.
+        credentials: 'same-origin', // include, *same-origin, omit
+        redirect: 'follow', // manual, *follow, error
+    })
+
+        .then(function (response) {
+        return response.json();
+        })
+        .then(function (data) {
+        console.log(data)
+        })
+};
+
+getCityLatLon();
 
 // Fetch latitude and longitude from city input from API Open Weather
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
@@ -51,18 +70,19 @@ function changeIndexColor() {
     }
 };
 
-// Handle Search Button Function - Having Issues console logging undefined
-function handleSearchBtn() {
+// Handle Search Button Function - Need to push into an array for multiple searches
+function previousCities() {
     // Variable for city entered
     var userInput = $("#input-form").val();
     // Console log user Input
     console.log("City Entered: ", userInput);
-    // Save to local storage
-    localStorage.setItem("city", JSON.stringify(userInput));
-}
-// add event listener for Search button
-$(".search").on("click", handleSearchBtn);
+    // Set userinput and save to local storage
+    localStorage.setItem("city", JSON.stringify({city: userInput}));
+};
 
+
+// add event listener for Search button - change to getAPI function (add previousCities function in Get API)
+$(".search").on("click", previousCities);
 
 
 
@@ -80,4 +100,23 @@ $(".search").on("click", handleSearchBtn);
 //     // Provide as buttons under the Search area so user can view again
 //     // Provide clear button to remove and clear local storage
 
+// // Function to return previous searches
+// function previousSearches() {
+//     var searches = [];
+//     // Return previous search results from local storage
+//     var previous = JSON.parse(localStorage.getItem("city"));
+//     // Console log the search result
+//     console.log("Previous Search: ", previous);
+//         // Push the previous searches into a new array
+//         if (Array.isArray(previous)) {
+//         previous.push(searches);
+//         // Set previous searches and turn into string
+//         localStorage.setItem("city", JSON.stringify(searches));
+//         }
+//     // Create as button
+//     // add event listener
+//     // Rerun the search results for current weather
+// };
+
+// previousSearches();
 

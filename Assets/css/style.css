@@ -29,7 +29,10 @@ label {
     margin-top: 10px;
 }
 
-
+/* Previous Padding */
+.previous {
+    padding-left: 20px;
+}
 
 
 /* Classes and Styling for UV Index Colors */
@@ -63,7 +66,9 @@ label {
     color: white;
 }
 
-
+.previous-searches {
+    background-color: black;
+}
 
 
 
