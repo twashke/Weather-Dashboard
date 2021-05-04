@@ -12,28 +12,10 @@ header h1 {
     padding: 15px;
 }
 
-/* Search for a City Styling */
-label {
-    font-size: 2rem;
-    padding-left: 25px;
-    font-weight: bolder;
-}
-
-/* Form Enter City Padding */
-.input-form {
-    padding-left: 20px;
-}
-
 /* Submit Button Margin */
 .submit-btn {
     margin-top: 10px;
 }
-
-/* Previous Padding */
-.previous {
-    padding-left: 20px;
-}
-
 
 /* Classes and Styling for UV Index Colors */
 /* Low = Green */
@@ -69,6 +51,7 @@ label {
 .previous-searches {
     background-color: black;
 }
+
 
 
 
