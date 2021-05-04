@@ -15,8 +15,8 @@
     <!-- Style CSS Link -->
     <link rel="stylesheet" href="Assets/css/style.css"/>
     <!-- Debug CSS File -->
-    <link rel="stylesheet" href="Assets/css/debug.css"/>
-    <!-- Website Title -->
+    <!-- <link rel="stylesheet" href="Assets/css/debug.css"/> -->
+    <!-- Website Title --> 
     <title>Weather Planner</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
         </div>
     </header>
     <section class="container-fluid">
-        <div class="row">
+        <div class="row ms-1 my-3 d-flex flex-wrap">
             <!-- Search Section and Buttons -->
             <div class="col-md-3 search-section">
                 <label for="Search for a City" class="form-label row"><h1>Search for a City:</h1></label>
@@ -46,88 +46,76 @@
             </div>
             <!-- Current Forecast of City Chosen -->
             <div class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">City and date</h1>
-                        <div class="card" style="width: 18rem;">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Temp: </li>
-                                <li class="list-group-item">Wind: </li>
-                                <li class="list-group-item">Humiduty: </li>
-                                <li class="list-group-item" id="uv-index">UV Index</li>
+                <div class="card current-weather">
+                    <div class="card-body" style="width: 18rem;">
+                            <h1 class="card-title city date">City and date <img class="weather-icon"></h1>
+                            <ul class="card-text me-1 p-0">
+                                <li class="my-3">Temp: <span class="temp ms-1"></span></li>
+                                <li class="my-3">Wind: <span class="wind ms-1"></span></li>
+                                <li class="my-3">Humidity: <span class="humidity ms-1"></span></li>
+                                <li class="my-3">UV Index <span id="uv-index ms-1"></span></li>
                             </ul>
-                        </div>
                     </div>
-                </div><br>
+                </div>
                 <!-- 5 Day Forecast Portion -->
-                <div class="container m-2"></div>
-                <h2>5-Day Forecast</h2>
-                    <div class="row d-flex justify-content-between m-0">
+                <div class="container"></div>
+                <div class="my-4"><h2>5-Day Forecast</h2></div>
+                    <div class="col d-flex justify-content-between flex-wrap m-0">
                         <!-- Day 1 -->
                         <div class="col-2">
-                            <div class=card>
-                                <h4 class="card-title" id="date-one">Date</h4>
-                                <div class=card>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id=day-one-icon>Icon Here</li>
-                                        <li class="list-group-item">Temp: </li>
-                                        <li class="list-group-item">Wind: </li>
-                                        <li class="list-group-item">Humiduty: </li>
-                                </div>
+                            <div class="card px-3 five-day">
+                                <h4 class="card-title my-3" id="date-two">Date</h4>
+                                    <img class="weather-icon my-3">
+                                    <ul class="card-text me-1 p-0">
+                                        <li class="my-3">Temp: <span class="temp ms-1"></span></li>
+                                        <li class="my-3">Wind: <span class="wind ms-1"></span></li>
+                                        <li class="my-3">Humidity: <span class="humidity ms-1"></span></li>
                             </div>
                         </div>
                         <!-- Day 2 -->
                         <div class="col-2">
-                            <div class=card>
-                                <h4 class="card-title" id="date-two">Date</h4>
-                                <div class=card>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id=day-two-icon>Icon Here</li>
-                                        <li class="list-group-item">Temp: </li>
-                                        <li class="list-group-item">Wind: </li>
-                                        <li class="list-group-item">Humiduty: </li>
-                                </div>
+                            <div class="card px-3 five-day">
+                                <h4 class="card-title my-3" id="date-two">Date</h4>
+                                    <img class="weather-icon my-3">
+                                    <ul class="card-text me-1 p-0">
+                                        <li class="my-3">Temp: <span class="temp ms-1"></span></li>
+                                        <li class="my-3">Wind: <span class="wind ms-1"></span></li>
+                                        <li class="my-3">Humidity: <span class="humidity ms-1"></span></li>
                             </div>
                         </div>
                         <!-- Day 3 -->
                         <div class="col-2">
-                            <div class=card>
-                                <h4 class="card-title" id="date-three">Date</h4>
-                                <div class=card>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id=day-three-icon>Icon Here</li>
-                                        <li class="list-group-item">Temp: </li>
-                                        <li class="list-group-item">Wind: </li>
-                                        <li class="list-group-item">Humiduty: </li>
-                                </div>
+                            <div class="card px-3 five-day">
+                                <h4 class="card-title my-3" id="date-two">Date</h4>
+                                    <img class="weather-icon my-3">
+                                    <ul class="card-text me-1 p-0">
+                                        <li class="my-3">Temp: <span class="temp ms-1"></span></li>
+                                        <li class="my-3">Wind: <span class="wind ms-1"></span></li>
+                                        <li class="my-3">Humidity: <span class="humidity ms-1"></span></li>
                             </div>
-                        </div>                                        
+                        </div>                                      
                         <!-- Day 4 -->
                         <div class="col-2">
-                            <div class=card>
-                                <h4 class="card-title" id="date-four">Date</h4>
-                                <div class=card>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id=day-four-icon>Icon Here</li>
-                                        <li class="list-group-item">Temp: </li>
-                                        <li class="list-group-item">Wind: </li>
-                                        <li class="list-group-item">Humiduty: </li>
-                                </div>
+                            <div class="card px-3 five-day">
+                                <h4 class="card-title my-3" id="date-two">Date</h4>
+                                    <img class="weather-icon my-3">
+                                    <ul class="card-text me-1 p-0">
+                                        <li class="my-3">Temp: <span class="temp ms-1"></span></li>
+                                        <li class="my-3">Wind: <span class="wind ms-1"></span></li>
+                                        <li class="my-3">Humidity: <span class="humidity ms-1"></span></li>
                             </div>
-                        </div>    
+                        </div> 
                         <!-- Day 5 -->
                         <div class="col-2">
-                            <div class=card>
-                                <h4 class="card-title" id="date-five">Date</h4>
-                                <div class=card>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item" id=day-five-icon>Icon Here</li>
-                                        <li class="list-group-item">Temp: </li>
-                                        <li class="list-group-item">Wind: </li>
-                                        <li class="list-group-item">Humiduty: </li>
-                                </div>
+                            <div class="card px-3 five-day">
+                                <h4 class="card-title my-3" id="date-two">Date</h4>
+                                    <img class="weather-icon my-3">
+                                    <ul class="card-text me-1 p-0">
+                                        <li class="my-3">Temp: <span class="temp ms-1"></span></li>
+                                        <li class="my-3">Wind: <span class="wind ms-1"></span></li>
+                                        <li class="my-3">Humidity: <span class="humidity ms-1"></span></li>
                             </div>
-                        </div>        
+                        </div>      
                 </div>
             </div>
     </section>

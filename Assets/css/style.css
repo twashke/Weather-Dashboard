@@ -1,6 +1,7 @@
 /* Universal Styling */
 * {
     font-family: 'Roboto', sans-serif;
+    list-style-type: none;
 }
 
 /* Header Styling */
@@ -50,6 +51,15 @@ header h1 {
 
 .previous-searches {
     background-color: black;
+}
+
+.current-weather {
+    border: 2px solid black;
+}
+
+.five-day {
+    background-image: linear-gradient(to bottom right, blue, darkblue);
+    color: white;
 }
 
 
