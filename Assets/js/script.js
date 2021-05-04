@@ -4,13 +4,13 @@
 
 
 function getCityLatLon() {
-    // fetch request gets a list of all the repos for the node.js organization
+    
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q={Everett}&appid={ba6e0d885e4c033e81cf08113e661854}" 
 
     fetch(requestUrl, {
-        method: 'GET', //GET is the default.
-        credentials: 'same-origin', // include, *same-origin, omit
-        redirect: 'follow', // manual, *follow, error
+        method: 'GET', 
+        credentials: 'same-origin', 
+        redirect: 'follow', 
     })
 
         .then(function (response) {
@@ -119,4 +119,10 @@ $(".search").on("click", previousCities);
 // };
 
 // previousSearches();
+
+// Function to create Search buttons for previous searches
+function whatever() {
+    $("#previous-button").addClass("d-grid gap-2 md-block row submit-btn");
+    $("#previous-button").append("<button>" + previousSearch + "</button>").addClass("search btn btn-primary");
+}
 
