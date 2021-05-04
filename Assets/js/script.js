@@ -1,13 +1,22 @@
 // Declare Element Variables
 
 // Declare Variables
+var now = moment()
+var date = now.format("MM/DD/YYYY");
 
+function getWeather() {
 
-function getCityLatLon() {
+    // Variable for city entered
+    var userInput = $("#input-form").val();
+    // Console log user Input
+    console.log("City Entered: ", userInput);
+    // Set userinput and save to local storage
+    localStorage.setItem("city", JSON.stringify({userInput}));
     
-    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q={Everett}&appid={ba6e0d885e4c033e81cf08113e661854}" 
+    // Variable for API to get latitude and longitude
+    var requestLatLon = "https://api.openweathermap.org/data/2.5/weather?q="+ userInput +"&appid=ba6e0d885e4c033e81cf08113e661854";
 
-    fetch(requestUrl, {
+    fetch(requestLatLon, {
         method: 'GET', 
         credentials: 'same-origin', 
         redirect: 'follow', 
@@ -18,17 +27,43 @@ function getCityLatLon() {
         })
         .then(function (data) {
         console.log(data)
+        // Variables for Latitude and Longitude
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+        // Console log data
+        console.log("lat: ", lat);
+        console.log("lon: ", lon);
+
+        var requestWeatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=ba6e0d885e4c033e81cf08113e661854";
+
+        fetch(requestWeatherUrl, {
+            method: 'GET', 
+            credentials: 'same-origin', 
+            redirect: 'follow', 
+        })
+
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+                // Variables for current data
+                var icon = data.current.weather[0].icon;
+                var iconImg = "http://openweathermap.org/img/wn/"+ icon + "@2x.png";
+                // console log icon info
+                console.log("icon: ", icon);
+                console.log("icon img: ", iconImg);
+                // console.log date
+                console.log("date: ", date);
+                
+
+
+            })
+
         })
 };
 
-getCityLatLon();
 
-// Fetch latitude and longitude from city input from API Open Weather
-// api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-    // coord.lon
-    // coord.lat
-// Fetch weather information
-// https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=minutely,hourly,daily,alerts&appid={API key}
 
 // User input should provide the following
     // City Name
@@ -71,18 +106,18 @@ function changeIndexColor() {
 };
 
 // Handle Search Button Function - Need to push into an array for multiple searches
-function previousCities() {
-    // Variable for city entered
-    var userInput = $("#input-form").val();
-    // Console log user Input
-    console.log("City Entered: ", userInput);
-    // Set userinput and save to local storage
-    localStorage.setItem("city", JSON.stringify({city: userInput}));
-};
+// function getCityLatLon() {
+//     // Variable for city entered
+//     var userInput = $("#input-form").val();
+//     // Console log user Input
+//     console.log("City Entered: ", userInput);
+//     // Set userinput and save to local storage
+//     localStorage.setItem("city", JSON.stringify({city: userInput}));
+// };
 
 
 // add event listener for Search button - change to getAPI function (add previousCities function in Get API)
-$(".search").on("click", previousCities);
+$(".search").on("click", getWeather);
 
 
 
@@ -120,9 +155,9 @@ $(".search").on("click", previousCities);
 
 // previousSearches();
 
-// Function to create Search buttons for previous searches
-function whatever() {
-    $("#previous-button").addClass("d-grid gap-2 md-block row submit-btn");
-    $("#previous-button").append("<button>" + previousSearch + "</button>").addClass("search btn btn-primary");
-}
+// // Function to create Search buttons for previous searches
+// function whatever() {
+//     $("#previous-button").addClass("d-grid gap-2 md-block row submit-btn");
+//     $("#previous-button").append("<button>" + previousSearch + "</button>").addClass("search btn btn-primary");
+// }
 
