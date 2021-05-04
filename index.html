@@ -15,7 +15,7 @@
     <!-- Style CSS Link -->
     <link rel="stylesheet" href="Assets/css/style.css"/>
     <!-- Debug CSS File -->
-    <!-- <link rel="stylesheet" href="Assets/css/debug.css"/> -->
+    <link rel="stylesheet" href="Assets/css/debug.css"/>
     <!-- Website Title -->
     <title>Weather Planner</title>
 </head>
@@ -26,23 +26,110 @@
             <h1>Weather Dashboard</h1>
         </div>
     </header>
-    <section>
-        <div class="col-md-6">
-            <div class="mb-6">
-                <label for="Search for a City" class="form-label">Search for a City:</label>
-                <div class="input-form">
-                <input type="form" class="form-control-lg col-md-6" id="input-form" placeholder="Enter City Here">
-                <div class="d-grid gap-2 md-block col-6 submit-btn">
-                <button class="search btn btn-primary">Search</button>
-                <hr>
-
+    <section class="container-fluid">
+        <div class="row">
+            <!-- Search Section and Buttons -->
+            <div class="col-md-3 search-section">
+                <label for="Search for a City" class="form-label row"><h1>Search for a City:</h1></label>
+                <div class="d-grid gap-2 md-block row">
+                <input type="form" class=" form-control-lg" id="input-form" placeholder="Enter City Here">
                 </div>
+                <div class="d-grid gap-2 md-block row submit-btn">
+                    <button class="search btn btn-primary">Search</button>
+                <hr>
+                    <div id="previous-button">
+
+                    <!-- previous button section -->
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section>
-        <div id="uv-index"></div>
+            <!-- Current Forecast of City Chosen -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">City and date</h1>
+                        <div class="card" style="width: 18rem;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Temp: </li>
+                                <li class="list-group-item">Wind: </li>
+                                <li class="list-group-item">Humiduty: </li>
+                                <li class="list-group-item" id="uv-index">UV Index</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><br>
+                <!-- 5 Day Forecast Portion -->
+                <div class="container m-2"></div>
+                <h2>5-Day Forecast</h2>
+                    <div class="row d-flex justify-content-between m-0">
+                        <!-- Day 1 -->
+                        <div class="col-2">
+                            <div class=card>
+                                <h4 class="card-title" id="date-one">Date</h4>
+                                <div class=card>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" id=day-one-icon>Icon Here</li>
+                                        <li class="list-group-item">Temp: </li>
+                                        <li class="list-group-item">Wind: </li>
+                                        <li class="list-group-item">Humiduty: </li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Day 2 -->
+                        <div class="col-2">
+                            <div class=card>
+                                <h4 class="card-title" id="date-two">Date</h4>
+                                <div class=card>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" id=day-two-icon>Icon Here</li>
+                                        <li class="list-group-item">Temp: </li>
+                                        <li class="list-group-item">Wind: </li>
+                                        <li class="list-group-item">Humiduty: </li>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Day 3 -->
+                        <div class="col-2">
+                            <div class=card>
+                                <h4 class="card-title" id="date-three">Date</h4>
+                                <div class=card>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" id=day-three-icon>Icon Here</li>
+                                        <li class="list-group-item">Temp: </li>
+                                        <li class="list-group-item">Wind: </li>
+                                        <li class="list-group-item">Humiduty: </li>
+                                </div>
+                            </div>
+                        </div>                                        
+                        <!-- Day 4 -->
+                        <div class="col-2">
+                            <div class=card>
+                                <h4 class="card-title" id="date-four">Date</h4>
+                                <div class=card>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" id=day-four-icon>Icon Here</li>
+                                        <li class="list-group-item">Temp: </li>
+                                        <li class="list-group-item">Wind: </li>
+                                        <li class="list-group-item">Humiduty: </li>
+                                </div>
+                            </div>
+                        </div>    
+                        <!-- Day 5 -->
+                        <div class="col-2">
+                            <div class=card>
+                                <h4 class="card-title" id="date-five">Date</h4>
+                                <div class=card>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" id=day-five-icon>Icon Here</li>
+                                        <li class="list-group-item">Temp: </li>
+                                        <li class="list-group-item">Wind: </li>
+                                        <li class="list-group-item">Humiduty: </li>
+                                </div>
+                            </div>
+                        </div>        
+                </div>
+            </div>
     </section>
     <!-- JQuery Source -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
