@@ -1,5 +1,3 @@
-// Declare Element Variables
-
 // Declare Variables
 var now = moment()
 var date = now.format("MM/DD/YYYY");
@@ -7,7 +5,7 @@ var date = now.format("MM/DD/YYYY");
 function getWeather() {
 
     // Variable for city entered
-    var userInput = $("#input-form").val();
+    var userInput = $("#input-form").val().toLowerCase().trim();
     // Console log user Input
     console.log("City Entered: ", userInput);
     // Set userinput and save to local storage
@@ -34,7 +32,7 @@ function getWeather() {
         console.log("lat: ", lat);
         console.log("lon: ", lon);
 
-        var requestWeatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=ba6e0d885e4c033e81cf08113e661854";
+        var requestWeatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&&appid=ba6e0d885e4c033e81cf08113e661854";
 
         fetch(requestWeatherUrl, {
             method: 'GET', 
@@ -50,8 +48,8 @@ function getWeather() {
                 // Variables for current data
                 var currentIcon = data.current.weather[0].icon;
                 var currentIconImg = "http://openweathermap.org/img/wn/" + currentIcon 
-                + ".png";
-                var currentIconAlt = data.current.weather[0].main;
+                + "@2x.png";
+                var currentIconAlt = data.current.weather[0].description;
                 // console log icon info
                 console.log("icon: ", currentIcon);
                 console.log("icon img: ", currentIconImg);
@@ -69,9 +67,8 @@ function getWeather() {
                 console.log("humidity: ", currentHumidity);
                 console.log("UVI: ", currentUvi);
                 // Input Data into Current Forecast Section
-                $(".city-date").text(userInput + " " + date);
-                $(".weather-icon").append("<img>");
-                $("img").attr("src", currentIconImg).attr("alt", currentIconAlt);
+                $(".city-date").text(userInput + " " + date).css("text-transform", "capitalize").css("font-weight", "bold");
+                $("#current-icon").attr("src", currentIconImg).attr("alt", currentIconAlt);
                 $(".temp").text(currentTemp + " \u00B0F");
                 $(".wind").text(currentWind + " MPH");
                 $(".humidity").text(currentHumidity + " %");
@@ -96,9 +93,94 @@ function getWeather() {
                     // Remove other classes and add class "extreme"
                     $(".uv-index").removeClass("low").removeClass("moderate").removeClass("high").removeClass("very-high").addClass("extreme")
                 }
-                // Input Data from 5-day forecast
-                
+                // Variables for 5-Day Forecast
+                // Day One
+                var dayOne = moment().add(1, 'days').format("MM/DD/YYYY");
+                var iconOne = data.daily[1].weather[0].icon;
+                var iconOneImg = "http://openweathermap.org/img/wn/" + iconOne + "@2x.png";
+                var iconOneAlt = data.daily[1].weather[0].description;
+                var tempOne = data.daily[1].temp.day;
+                var windOne = data.daily[1].wind_speed;
+                var humidityOne = data.daily[1].humidity;
+                // Day Two
+                var dayTwo = moment().add(2, 'days').format("MM/DD/YYYY");
+                var iconTwo = data.daily[2].weather[0].icon;
+                var iconTwoImg = "http://openweathermap.org/img/wn/" + iconTwo + "@2x.png";
+                var iconTwoAlt = data.daily[2].weather[0].description;
+                var tempTwo = data.daily[2].temp.day;
+                var windTwo = data.daily[2].wind_speed;
+                var humidityTwo = data.daily[2].humidity;
+                // Day Three
+                var dayThree = moment().add(3, 'days').format("MM/DD/YYYY");
+                var iconThree = data.daily[3].weather[0].icon;
+                var iconThreeImg = "http://openweathermap.org/img/wn/" + iconThree + "@2x.png";
+                var iconThreeAlt = data.daily[3].weather[0].description;
+                var tempThree = data.daily[3].temp.day;
+                var windThree = data.daily[3].wind_speed;
+                var humidityThree = data.daily[3].humidity;
+                // Day Four
+                var dayFour = moment().add(4, 'days').format("MM/DD/YYYY");
+                var iconFour = data.daily[4].weather[0].icon;
+                var iconFourImg = "http://openweathermap.org/img/wn/" + iconFour + "@2x.png";
+                var iconFourAlt = data.daily[4].weather[0].description;
+                var tempFour = data.daily[4].temp.day;
+                var windFour = data.daily[4].wind_speed;
+                var humidityFour = data.daily[4].humidity;
+                // Day Four
+                var dayFive = moment().add(5, 'days').format("MM/DD/YYYY");
+                var iconFive = data.daily[5].weather[0].icon;
+                var iconFiveImg = "http://openweathermap.org/img/wn/" + iconFive + "@2x.png";
+                var iconFiveAlt = data.daily[5].weather[0].description;
+                var tempFive = data.daily[5].temp.day;
+                var windFive = data.daily[5].wind_speed;
+                var humidityFive = data.daily[5].humidity;
+                // Input Day One Forecast
+                $("#date-one").addClass("five-day");
+                $(".date-one").text(dayOne).css("text-align", "center");
+                $(".icon-1").attr("src", iconOneImg).attr("alt", iconOneAlt);
+                $(".temp-1").text(tempOne + " \u00B0F");
+                $(".wind-1").text(windOne + " MPH");
+                $(".humidity-1").text(humidityOne + " %");
+                // Input Day Two Forecast
+                $("#date-two").addClass("five-day");
+                $(".date-two").text(dayTwo).css("text-align", "center");
+                $(".icon-2").attr("src", iconTwoImg).attr("alt", iconTwoAlt);
+                $(".temp-2").text(tempTwo + " \u00B0F");
+                $(".wind-2").text(windTwo + " MPH");
+                $(".humidity-2").text(humidityTwo + " %")
+                // Input Day Three Forecast
+                $("#date-three").addClass("five-day");
+                $(".date-three").text(dayThree).css("text-align", "center");
+                $(".icon-3").attr("src", iconThreeImg).attr("alt", iconThreeAlt);
+                $(".temp-3").text(tempThree + " \u00B0F");
+                $(".wind-3").text(windThree + " MPH");
+                $(".humidity-3").text(humidityThree + " %");
+                // Input Day Four Forecast
+                $("#date-four").addClass("five-day");
+                $(".date-four").text(dayFour).css("text-align", "center");
+                $(".icon-4").attr("src", iconFourImg).attr("alt", iconFourAlt);
+                $(".temp-4").text(tempFour + " \u00B0F");
+                $(".wind-4").text(windFour + " MPH");
+                $(".humidity-4").text(humidityFour + " %");
+                // Input Day Five Forecast
+                $("#date-five").addClass("five-day");
+                $(".date-five").text(dayFive).css("text-align", "center");
+                $(".icon-5").attr("src", iconFiveImg).attr("alt", iconFiveAlt);
+                $(".temp-5").text(tempFive + " \u00B0F");
+                $(".wind-5").text(windFive + " MPH");
+                $(".humidity-5").text(humidityFive + " %");
             })
+
+            function previousSearches() {
+                // Variable for Previous Button
+                var previousBtn = userInput.css("text-transform", "capitalize");
+                // Add class for button
+                $("#previous-button").addClass("d-grid gap-2 md-block row submit-btn");
+                // Add button to section
+                $("#previous-button").append("<button>" + previousBtn + "</button>").addClass("search btn btn-secondary");
+            }
+
+            
 
         })
 };

@@ -30,7 +30,7 @@
         <div class="row ms-1 my-3 d-flex flex-wrap">
             <!-- Search Section and Buttons -->
             <div class="col-md-3 search-section">
-                <label for="Search for a City" class="form-label row"><h1>Search for a City:</h1></label>
+                <label for="Search for a City" class="form-label row"><h2>Search for a City:</h2></label>
                 <div class="d-grid gap-2 md-block row">
                 <input type="form" class=" form-control-lg" id="input-form" placeholder="Enter City Here">
                 </div>
@@ -47,70 +47,79 @@
             <!-- Current Forecast of City Chosen -->
             <div class="col-md-9">
                 <div class="current-weather">
-                    <h1 class="ms-3 my-1 card-title city-date weather-icon" style="width: auto;"></h1>
-                <div class="container">
-                    <div class="card-body" style="width: 18rem;">
-                            <ul class="card-text p-0">
-                                <li class="my-2">Temp: <span class="temp ms-1"></span></li>
-                                <li class="my-2">Wind: <span class="wind ms-1"></span></li>
-                                <li class="my-2">Humidity: <span class="humidity ms-1"></span></li>
-                                <li class="my-2">UV Index: <span class="uv-index ms-1"></span></li>
-                            </ul>
-                        </div>
+                    <h1 class="card-title city-date ms-3 my-1" style="width: auto;"></h1>
+                    <div class="card-body">
+                        <img id="current-icon" src="" alt="">
+                        <ul class="card-text">
+                            <li>Temp: <span class="temp ms-1"></span></li>
+                            <li class="my-1">Wind: <span class="wind ms-1"></span></li>
+                            <li class="my-1">Humidity: <span class="humidity ms-1"></span></li>
+                            <li class="my-1">UV Index: <span class="uv-index ms-1"></span></li>
+                        </ul>
                     </div>
                 </div>
                 <!-- 5 Day Forecast Portion -->
                 <div class="container"></div>
-                <div class="my-4"><h2>5-Day Forecast</h2></div>
-                    <div class="col d-flex justify-content-between flex-wrap m-0">
+                <div class="mt-1"><h2>5-Day Forecast</h2></div>
+                    <div class="col d-flex justify-content-between">
                         <!-- Day 1 -->
                         <div class="col-2">
-                            <div class="card px-3 five-day">
-                                <h4 class="card-title my-3" id="date-two">Date</h4>
-                                    <ul class="card-text me-1 p-0">
-                                        <li class="my-3">Temp: <span class="temp-1 ms-1"></span></li>
-                                        <li class="my-3">Wind: <span class="wind-1 ms-1"></span></li>
-                                        <li class="my-3">Humidity: <span class="humidity-1 ms-1"></span></li>
+                            <div id="date-one" class="container p-1">
+                                <h4 class="date-one card-title mt-1"></h4>
+                                <img class="ms-4 icon-1" src="" alt="">
+                                    <div class="weather-info">
+                                        <div class="ms-4 my-2">Temp: <span class="temp-1"></span></div>
+                                        <div class="ms-4 my-2">Wind: <span class="wind-1"></span></div>
+                                        <div class="ms-4 my-2">Humidity: <span class="humidity-1"></span></div>
+                                    </div>
                             </div>
                         </div>
                         <!-- Day 2 -->
                         <div class="col-2">
-                            <div class="card px-3 five-day">
-                                <h4 class="card-title my-3" id="date-two">Date</h4>
-                                    <ul class="card-text me-1 p-0">
-                                        <li class="my-3">Temp: <span class="temp-2 ms-1"></span></li>
-                                        <li class="my-3">Wind: <span class="wind-2 ms-1"></span></li>
-                                        <li class="my-3">Humidity: <span class="humidity-2 ms-1"></span></li>
+                            <div id="date-two" class="container p-1">
+                                <h4 class="date-two card-title mt-1"></h4>
+                                <img class="ms-4 icon-2" src="" alt="">
+                                    <div class="weather-info">
+                                        <div class="ms-4 my-2">Temp: <span class="temp-2"></span></div>
+                                        <div class="ms-4 my-2">Wind: <span class="wind-2"></span></div>
+                                        <div class="ms-4 my-2">Humidity: <span class="humidity-2"></span></div>
+                                    </div> 
                             </div>
                         </div>
                         <!-- Day 3 -->
                         <div class="col-2">
-                            <div class="card px-3 five-day">
-                                <h4 class="card-title my-3" id="date-two">Date</h4>
-                                    <ul class="card-text me-1 p-0">
-                                        <li class="my-3">Temp: <span class="temp-3 ms-1"></span></li>
-                                        <li class="my-3">Wind: <span class="wind-3 ms-1"></span></li>
-                                        <li class="my-3">Humidity: <span class="humidity-3 ms-1"></span></li>
+                            <div id="date-three" class="container p-1">
+                                <h4 class="date-three card-title mt-1"></h4>
+                                <img class="ms-4 icon-3" src="" alt="">
+                                    <div class="weather-info">  
+                                        <div class="ms-4 my-2">Temp: <span class="temp-3"></span></div>
+                                        <div class="ms-4 my-2">Wind: <span class="wind-3"></span></div>
+                                        <div class="ms-4 my-2">Humidity: <span class="humidity-3"></span></div>
+                                    </div>
                             </div>
                         </div>                                      
                         <!-- Day 4 -->
                         <div class="col-2">
-                            <div class="card px-3 five-day">
-                                <h4 class="card-title my-3" id="date-two">Date</h4>
-                                    <ul class="card-text me-1 p-0">
-                                        <li class="my-3">Temp: <span class="temp-4 ms-1"></span></li>
-                                        <li class="my-3">Wind: <span class="wind-4 ms-1"></span></li>
-                                        <li class="my-3">Humidity: <span class="humidity-4 ms-1"></span></li>
+                            <div id="date-four" class="container p-1">
+                                <h4 class="date-four card-title mt-1"></h4>
+                                <img class="ms-4 icon-4" src="" alt="">
+                                    <div class="weather-info">  
+                                        <div class="ms-4 my-2">Temp: <span class="temp-4"></span></div>
+                                        <div class="ms-4 my-2">Wind: <span class="wind-4"></span></div>
+                                        <div class="ms-4 my-2">Humidity: <span class="humidity-4"></span></div>
+                                    </div>
                             </div>
                         </div> 
                         <!-- Day 5 -->
                         <div class="col-2">
-                            <div class="card px-3 five-day">
-                                <h4 class="card-title my-3" id="date-two">Date</h4>
-                                    <ul class="card-text me-1 p-0">
-                                        <li class="my-3">Temp: <span class="temp-5 ms-1"></span></li>
-                                        <li class="my-3">Wind: <span class="wind-5 ms-1"></span></li>
-                                        <li class="my-3">Humidity: <span class="humidity-5 ms-1"></span></li>
+                            <div id="date-five" class="container p-1">
+                                <h4 class="date-five card-title mt-1"></h4>
+                                <img class="ms-4 icon-5" src="" alt="">
+                                    <div class="weather-info">
+                                        <div class="ms-4 my-2">Temp: <span class="temp-5"></span></div>
+                                        <div class="ms-4 my-2">Wind: <span class="wind-5"></span></div>
+                                        <div class="ms-4 my-2">Humidity: <span class="humidity-5"></span></div>
+                                        </div>
                             </div>
                         </div>      
                 </div>
