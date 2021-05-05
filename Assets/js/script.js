@@ -48,88 +48,65 @@ function getWeather() {
             .then(function (data) {
                 console.log(data)
                 // Variables for current data
-                var icon = data.current.weather[0].icon;
-                var iconImg = "http://openweathermap.org/img/wn/"+ icon + "@2x.png";
+                var currentIcon = data.current.weather[0].icon;
+                var currentIconImg = "http://openweathermap.org/img/wn/" + currentIcon 
+                + ".png";
+                var currentIconAlt = data.current.weather[0].main;
                 // console log icon info
-                console.log("icon: ", icon);
-                console.log("icon img: ", iconImg);
+                console.log("icon: ", currentIcon);
+                console.log("icon img: ", currentIconImg);
+                console.log("icon alt: ", currentIconAlt);
                 // console.log date
                 console.log("date: ", date);
+                // Variables for weather information current data
+                var currentTemp = data.current.temp;
+                var currentWind = data.current.wind_speed;
+                var currentHumidity = data.current.humidity;
+                var currentUvi = data.current.uvi;
+                // console log data
+                console.log("temp: ", currentTemp);
+                console.log("wind: ", currentWind);
+                console.log("humidity: ", currentHumidity);
+                console.log("UVI: ", currentUvi);
+                // Input Data into Current Forecast Section
+                $(".city-date").text(userInput + " " + date);
+                $(".weather-icon").append("<img>");
+                $("img").attr("src", currentIconImg).attr("alt", currentIconAlt);
+                $(".temp").text(currentTemp + " \u00B0F");
+                $(".wind").text(currentWind + " MPH");
+                $(".humidity").text(currentHumidity + " %");
+                $(".uv-index").text(currentUvi);
+                if (currentUvi <= 2) {
+                    // Remove other classes and add class "low"
+                    $(".uv-index").removeClass("moderate").removeClass("high").removeClass("very-high").removeClass("extreme").addClass("low")
+                // Yellow = Moderate - uv index 3 - 5 = uv index less than 5
+                } else if (currentUvi <= 5) {
+                    // Remove other classes and add class "moderate"
+                    $(".uv-index").removeClass("low").removeClass("high").removeClass("very-high").removeClass("extreme").addClass("moderate")
+                // Orange = High - uv index 6 - 7 = uv index less than 7
+                } else if (currentUvi <= 7) {
+                    // Remove other classes and add class "high"
+                    $(".uv-index").removeClass("low").removeClass("moderate").removeClass("very-high").removeClass("extreme").addClass("high")
+                // Red = Very High - uv index 8 - 10 = uv index less than 10
+                } else if (currentUvi <= 10) {
+                    // Remove other classes and add class "very-high"
+                    $(".uv-index").removeClass("low").removeClass("moderate").removeClass("high").removeClass("extreme").addClass("very-high")
+                // Magenta = Extreme - uv index 11 = uv index equal or greater than 11
+                } else {
+                    // Remove other classes and add class "extreme"
+                    $(".uv-index").removeClass("low").removeClass("moderate").removeClass("high").removeClass("very-high").addClass("extreme")
+                }
+                // Input Data from 5-day forecast
                 
-
-
             })
 
         })
 };
 
 
-
-// User input should provide the following
-    // City Name
-    // Date
-    // Weather conditions: - "current"
-        // Icon of conditions - "current.weather.icon"
-            // For code 500 - light rain icon = "10d". See below a full list of codes
-            // URL is http://openweathermap.org/img/wn/10d@2x.png - refer to https://openweathermap.org/weather-conditions
-        // Temperature - "current.temp"
-        // Humidity - "current.humidity"
-        // Wind speed - "current.wind_speed"
-        // UV Index - "current.uvi"
-
-// Declare Variables
-var uvIndex;    
-
-// Function to change UV Index Color depending on severity
-function changeIndexColor() {          
-    // Green = Low - uv index 1 - 2 = uv index less than 2
-    if (uvIndex <= 2) {
-        // Remove other classes and add class "low"
-        $("#uv-index").removeClass("moderate").removeClass("high").removeClass("very-high").removeClass("extreme").addClass("low")
-    // Yellow = Moderate - uv index 3 - 5 = uv index less than 5
-    } else if (uvIndex <= 5) {
-        // Remove other classes and add class "moderate"
-        $("#uv-index").removeClass("low").removeClass("high").removeClass("very-high").removeClass("extreme").addClass("moderate")
-    // Orange = High - uv index 6 - 7 = uv index less than 7
-    } else if (uvIndex <= 7) {
-        // Remove other classes and add class "high"
-        $("#uv-index").removeClass("low").removeClass("moderate").removeClass("very-high").removeClass("extreme").addClass("high")
-    // Red = Very High - uv index 8 - 10 = uv index less than 10
-    } else if (uvIndex <= 10) {
-        // Remove other classes and add class "very-high"
-        $("#uv-index").removeClass("low").removeClass("moderate").removeClass("high").removeClass("extreme").addClass("very-high")
-    // Magenta = Extreme - uv index 11 = uv index equal or greater than 11
-    } else {
-        // Remove other classes and add class "extreme"
-        $("#uv-index").removeClass("low").removeClass("moderate").removeClass("high").removeClass("very-high").addClass("extreme")
-    }
-};
-
-// Handle Search Button Function - Need to push into an array for multiple searches
-// function getCityLatLon() {
-//     // Variable for city entered
-//     var userInput = $("#input-form").val();
-//     // Console log user Input
-//     console.log("City Entered: ", userInput);
-//     // Set userinput and save to local storage
-//     localStorage.setItem("city", JSON.stringify({city: userInput}));
-// };
-
-
 // add event listener for Search button - change to getAPI function (add previousCities function in Get API)
 $(".search").on("click", getWeather);
 
-
-
-//     // Provide 5 day forecast that displays: 
-//         // Date
-//         // Weather Conditions: - "daily"
-//             // Icon of conditions - "daily.weather.icon"
-//                 // For code 500 - light rain icon = "10d". See below a full list of codes
-//                 // URL is http://openweathermap.org/img/wn/10d@2x.png - refer to https://openweathermap.org/weather-conditions
-//             // Temperature - "daily.temp.day"
-//             // Humidity - "daily.humidity"
-//             // Wind speed - "daily.wind_speed"
 
 // // Save previous user inputs for items last item entered
 //     // Provide as buttons under the Search area so user can view again
