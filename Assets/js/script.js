@@ -150,35 +150,35 @@ function getWeather() {
                 var humidityFive = data.daily[5].humidity;
                 // Input Day One Forecast
                 $("#date-one").addClass("five-day");
-                $(".date-one").text(dayOne).css("text-align", "center");
+                $(".date-one").text(dayOne).css("text-align", "center").css("color", "black");
                 $(".icon-1").attr("src", iconOneImg).attr("alt", iconOneAlt);
                 $(".temp-1").text(tempOne + " \u00B0F");
                 $(".wind-1").text(windOne + " MPH");
                 $(".humidity-1").text(humidityOne + " %");
                 // Input Day Two Forecast
                 $("#date-two").addClass("five-day");
-                $(".date-two").text(dayTwo).css("text-align", "center");
+                $(".date-two").text(dayTwo).css("text-align", "center").css("color", "black");
                 $(".icon-2").attr("src", iconTwoImg).attr("alt", iconTwoAlt);
                 $(".temp-2").text(tempTwo + " \u00B0F");
                 $(".wind-2").text(windTwo + " MPH");
                 $(".humidity-2").text(humidityTwo + " %")
                 // Input Day Three Forecast
                 $("#date-three").addClass("five-day");
-                $(".date-three").text(dayThree).css("text-align", "center");
+                $(".date-three").text(dayThree).css("text-align", "center").css("color", "black");
                 $(".icon-3").attr("src", iconThreeImg).attr("alt", iconThreeAlt);
                 $(".temp-3").text(tempThree + " \u00B0F");
                 $(".wind-3").text(windThree + " MPH");
                 $(".humidity-3").text(humidityThree + " %");
                 // Input Day Four Forecast
                 $("#date-four").addClass("five-day");
-                $(".date-four").text(dayFour).css("text-align", "center");
+                $(".date-four").text(dayFour).css("text-align", "center").css("color", "black");
                 $(".icon-4").attr("src", iconFourImg).attr("alt", iconFourAlt);
                 $(".temp-4").text(tempFour + " \u00B0F");
                 $(".wind-4").text(windFour + " MPH");
                 $(".humidity-4").text(humidityFour + " %");
                 // Input Day Five Forecast
                 $("#date-five").addClass("five-day");
-                $(".date-five").text(dayFive).css("text-align", "center");
+                $(".date-five").text(dayFive).css("text-align", "center").css("color", "black");
                 $(".icon-5").attr("src", iconFiveImg).attr("alt", iconFiveAlt);
                 $(".temp-5").text(tempFive + " \u00B0F");
                 $(".wind-5").text(windFive + " MPH");

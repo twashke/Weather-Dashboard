@@ -84,7 +84,8 @@ button {
 }
 
 .five-day {
-    background-image: linear-gradient(to bottom right, blue, darkblue);
+    background-image: linear-gradient(to bottom, lightblue,blue
+    );
     color: white;
 }
 
