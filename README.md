@@ -37,7 +37,7 @@ The Scale follows the EPA guidelines:
 
 ## Installation
 
-- Open [Work Day Scheduler Application](https://twashke.github.io/Weather-Dashboard/) 
+- Open [Weather Dashboard](https://twashke.github.io/Weather-Dashboard/) 
 - Or, open index.html in the internet browser.
 
 ## Usage
