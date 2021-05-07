@@ -1,39 +1,53 @@
+// Declare Element for PreviousBtn
+var previousBtn = $(".previous-button");
+
 // Declare Variables
 var now = moment()
 var date = now.format("MM/DD/YYYY");
+var userInput;
 
-function getWeather() {
-
+// Listener Event for Start Button
+$(".search").on("click", function() {
     // Variable for city entered
-    var userInput = $("#input-form").val().toLowerCase().trim();
+    userInput = $("#input-form").val().toLowerCase().trim();
     // Console log user Input
     console.log("City Entered: ", userInput);
     // Set userinput and save to local storage
     localStorage.setItem("city", JSON.stringify({userInput}));
-    
+    // Run Weather Function
+    getWeather();
+});
+
+
+function getWeather() {    
     // Variable for API to get latitude and longitude
     var requestLatLon = "https://api.openweathermap.org/data/2.5/weather?q="+ userInput +"&appid=ba6e0d885e4c033e81cf08113e661854";
-
+    // Fetch request for Latitude and Longitude of City Entered
     fetch(requestLatLon, {
         method: 'GET', 
         credentials: 'same-origin', 
         redirect: 'follow', 
     })
-
         .then(function (response) {
-        return response.json();
+                return response.json();
         })
         .then(function (data) {
         console.log(data)
+
+        // If latitude and lingitude can't be retrieved
+        if (data.cod == "404") {
+            window.alert("Sorry we didn't get that, please try again!");
+        } 
+
         // Variables for Latitude and Longitude
         var lat = data.coord.lat;
         var lon = data.coord.lon;
         // Console log data
         console.log("lat: ", lat);
         console.log("lon: ", lon);
-
+        // Variable for API to get Current and 5 Day Forecast
         var requestWeatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&&appid=ba6e0d885e4c033e81cf08113e661854";
-
+        // Fetch request for Weather inputting Latitude and Longitude
         fetch(requestWeatherUrl, {
             method: 'GET', 
             credentials: 'same-origin', 
@@ -169,54 +183,28 @@ function getWeather() {
                 $(".temp-5").text(tempFive + " \u00B0F");
                 $(".wind-5").text(windFive + " MPH");
                 $(".humidity-5").text(humidityFive + " %");
-            })
-
-            function previousSearches() {
-                // Variable for Previous Button
-                var previousBtn = userInput.css("text-transform", "capitalize");
-                // Add class for button
-                $("#previous-button").addClass("d-grid gap-2 md-block row submit-btn");
+                // Capitalize search input
+                $("button").css("text-transform", "capitalize");
                 // Add button to section
-                $("#previous-button").append("<button>" + previousBtn + "</button>").addClass("search btn btn-secondary");
-            }
-
+                $(".previous-button").append("<button id=" + userInput + ">" + userInput + "</button>");
+                })
             
-
         })
-};
+        // Clear search field
+        $(".city-search").val("");
+    };
 
+// Function to pull up previous city
+function previousCity(event) {
+    // Variable for item clicked
+    var buttonClicked = (event.target.id);
+    // Console log to button clicked
+    console.log("Button clicked: ", buttonClicked);
+    // userInput changes to previous city
+    userInput = buttonClicked
+    // Run getWeather function 
+    getWeather();
+}
 
-// add event listener for Search button - change to getAPI function (add previousCities function in Get API)
-$(".search").on("click", getWeather);
-
-
-// // Save previous user inputs for items last item entered
-//     // Provide as buttons under the Search area so user can view again
-//     // Provide clear button to remove and clear local storage
-
-// // Function to return previous searches
-// function previousSearches() {
-//     var searches = [];
-//     // Return previous search results from local storage
-//     var previous = JSON.parse(localStorage.getItem("city"));
-//     // Console log the search result
-//     console.log("Previous Search: ", previous);
-//         // Push the previous searches into a new array
-//         if (Array.isArray(previous)) {
-//         previous.push(searches);
-//         // Set previous searches and turn into string
-//         localStorage.setItem("city", JSON.stringify(searches));
-//         }
-//     // Create as button
-//     // add event listener
-//     // Rerun the search results for current weather
-// };
-
-// previousSearches();
-
-// // Function to create Search buttons for previous searches
-// function whatever() {
-//     $("#previous-button").addClass("d-grid gap-2 md-block row submit-btn");
-//     $("#previous-button").append("<button>" + previousSearch + "</button>").addClass("search btn btn-primary");
-// }
-
+// Event handler for previous city buttons
+previousBtn.on("click", previousCity);
