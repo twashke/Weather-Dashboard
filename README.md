@@ -1,6 +1,6 @@
 # Weather-Dashboard
 
-Using Server Side APIs to create a Weather Dashboard
+The Weather Dashboard was built to allow the user the ability to look up the current weather in their area.  When the user inouts the City and clicks the search button, the current forecast (temp, wind, humidity, UV index), and the upcoming 5 day forecast (temp, wind, humidity).
 
 ## Table of Contents 
 
@@ -29,12 +29,12 @@ The Scale follows the EPA guidelines:
 
 ## Installation
 
-- Open [Work Day Scheduler Application](deployed github link added here) 
+- Open [Work Day Scheduler Application](https://twashke.github.io/Weather-Dashboard/) 
 - Or, open index.html in the internet browser.
 
 ## Usage
 
-- Go to [Deployed Github Page](deployed github link added here)
+- Go to [Deployed Github Page](https://twashke.github.io/Weather-Dashboard/)
 - Project Information
 - Project Information
 - Project Information

@@ -13,6 +13,7 @@ header h1 {
     padding: 15px;
 }
 
+/* Capitalize City for Buttons */
 button {
     text-transform: capitalize;
 }
@@ -27,30 +28,51 @@ button {
 .low {
     background-color: green;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+
 }
 
 /* Moderate = Yellow */
 .moderate {
     background-color: yellow;
     color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* High = Orange */
 .high {
     background-color: orange;
     color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Very High = Red */
 .very-high {
     background-color :red;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Extreme = Magenta */
 .extreme {
     background-color: magenta;
     color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .previous-searches {
