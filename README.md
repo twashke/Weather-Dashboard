@@ -33,6 +33,7 @@ The Scale follows the EPA guidelines:
     - [OpenWeather API](https://openweathermap.org/api)
         - [Current Weather Data](https://openweathermap.org/api) API
         - [One Call API](https://openweathermap.org/api) API
+    - HTML, CSS, and Javascript
 - Comments have been added to the HTML, CSS and JS files to clarify each step and make future updates easier.
 
 ## Installation
