@@ -229,9 +229,9 @@ previousBtn.on("click", previousCity);
 // Clear History Function
 function clearHistory() {
     var clearInput = [];
-
+    // Clear out buttons in previous button section
     $(".previous-button").empty();
-
+    // Set previousInput variable to empty
     previousInput = clearInput;
 }
 
