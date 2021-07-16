@@ -1,10 +1,12 @@
 // Declare Element for PreviousBtn
 var previousBtn = $(".previous-button");
+var clearBtn = $(".clear-history");
 
 // Declare Variables
 var now = moment()
 var date = now.format("MM/DD/YYYY");
 var userInput;
+var previousInput = [];
 
 // Listener Event for Start Button
 $(".search").on("click", function() {
@@ -65,11 +67,11 @@ function getWeather() {
                 + "@2x.png";
                 var currentIconAlt = data.current.weather[0].description;
                 // console log icon info
-                console.log("icon: ", currentIcon);
-                console.log("icon img: ", currentIconImg);
-                console.log("icon alt: ", currentIconAlt);
+                // console.log("icon: ", currentIcon);
+                // console.log("icon img: ", currentIconImg);
+                // console.log("icon alt: ", currentIconAlt);
                 // console.log date
-                console.log("date: ", date);
+                // console.log("date: ", date);
                 // Variables for weather information current data
                 var currentTemp = data.current.temp;
                 var currentWind = data.current.wind_speed;
@@ -107,6 +109,7 @@ function getWeather() {
                     // Remove other classes and add class "extreme"
                     $(".uv-index").removeClass("low").removeClass("moderate").removeClass("high").removeClass("very-high").addClass("extreme")
                 }
+
                 // Variables for 5-Day Forecast
                 // Day One
                 var dayOne = moment().add(1, 'days').format("MM/DD/YYYY");
@@ -185,10 +188,21 @@ function getWeather() {
                 $(".humidity-5").text(humidityFive + " %");
                 // Capitalize search input
                 $("button").css("text-transform", "capitalize");
-                // Add button to section
-                $(".previous-button").append("<button id=" + userInput + ">" + userInput + "</button>");
-                })
-            
+
+                const prevSearch = previousInput.includes(userInput);
+                console.log("Input: ", prevSearch);
+
+                    if(prevSearch === false) {
+                        // Add button to section and add dash to cities with spaces
+                        $(".previous-button").append("<button id= " + userInput.replace(/\s/g , "-") + ">" + userInput + "</button>");
+                    }
+                
+                // Creating array of user inputs
+                previousInput.push(userInput);
+                // console logging above array
+                console.log(previousInput);
+                    
+            })
         })
         // Clear search field
         $(".city-search").val("");
@@ -197,14 +211,28 @@ function getWeather() {
 // Function to pull up previous city
 function previousCity(event) {
     // Variable for item clicked
-    var buttonClicked = (event.target.id);
+    var buttonClicked = event.target.id;
     // Console log to button clicked
     console.log("Button clicked: ", buttonClicked);
+    // replace dashes with spaces for weather API
+    var prevCityChosen = buttonClicked.replace("-", " ");
+    console.log(prevCityChosen);
     // userInput changes to previous city
-    userInput = buttonClicked
+    userInput = prevCityChosen
     // Run getWeather function 
     getWeather();
 }
 
 // Event handler for previous city buttons
 previousBtn.on("click", previousCity);
+
+// Clear History Function
+function clearHistory() {
+    var clearInput = [];
+
+    $(".previous-button").empty();
+
+    previousInput = clearInput;
+}
+
+clearBtn.on("click", clearHistory);
